@@ -36,8 +36,8 @@ resource "aws_route" "internet_access" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.this.id
 }
-resource "aws_route_table_association" "public_subent" {
+resource "aws_route_table_association" "public" {
   for_each = aws_subnet.public
   route_table_id = aws_route_table.public_rt.id
-  subnet_id = each.value[aws_subnet.public.id]
+  subnet_id = each.value.id
 }
