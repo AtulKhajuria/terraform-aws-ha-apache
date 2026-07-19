@@ -15,8 +15,8 @@ variable "vpc_cidr" {
 }
 variable "public_subnets" {
   description = "CIDR block for public subnets"
-  type        = map(object({
-    cidr = string
+  type = map(object({
+    cidr     = string
     az_index = number
   }))
 }
