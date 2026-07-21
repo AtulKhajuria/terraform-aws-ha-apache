@@ -22,6 +22,6 @@ variable "public_subnets" {
 }
 variable "instance_type" {
   description = "EC2 instance type"
-  type = string
-  default = "t3.micro"
+  type        = string
+  default     = "t3.micro"
 }
