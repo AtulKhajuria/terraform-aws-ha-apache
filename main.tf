@@ -12,3 +12,11 @@ module "security" {
   project_name = var.project_name
   environment = var.environment
 }
+module "compute" {
+  source = "./modules/compute"
+  environment = var.environment
+  project_name = var.project_name
+  security_group_id = module.security.ec2_security_group_id
+  instance_type = var.instance_type
+  common_tags = local.common_tags
+}
