@@ -7,10 +7,10 @@ module "network" {
   common_tags    = local.common_tags
 }
 module "security" {
-  source = "./modules/security"
-  vpc_id = module.network.vpc_id
+  source       = "./modules/security"
+  vpc_id       = module.network.vpc_id
   project_name = var.project_name
-  environment = var.environment
+  environment  = var.environment
 }
 module "compute" {
   source = "./modules/compute"
