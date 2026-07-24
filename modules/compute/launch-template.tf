@@ -20,3 +20,12 @@ resource "aws_launch_template" "this" {
     )
   }
 }
+tag_specifications {
+   resource_type = "volume"
+   tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-${var.environment}-volume"
+    }
+   )
+}
