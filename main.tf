@@ -20,3 +20,12 @@ module "compute" {
   instance_type     = var.instance_type
   common_tags       = local.common_tags
 }
+module "alb" {
+  source = "./modules/alb"
+  vpc_id = module.network.vpc_id
+  public_subnet_ids = module.network.public_subnet_ids
+  alb_security_group_id = module.security.alb_security_group_id
+  project_name = var.project_name
+  environment = var.environment
+  common_tags = local.common_tags
+}
