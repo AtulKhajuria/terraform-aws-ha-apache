@@ -19,6 +19,8 @@ module "compute" {
   security_group_id = module.security.ec2_security_group_id
   instance_type     = var.instance_type
   common_tags       = local.common_tags
+  public_subnet_ids = module.network.public_subnet_ids
+  target_group_arn = module.alb.target_group_arn
 }
 module "alb" {
   source                = "./modules/alb"

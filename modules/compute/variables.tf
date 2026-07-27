@@ -15,3 +15,11 @@ variable "common_tags" {
     description = "Common tags of project"
     type = map(string)
 }
+variable "target_group_arn" {
+  description = "Target group ARN"
+  type = string
+}
+variable "public_subnet_ids" {
+  description = "Public subnet IDs for ASG"
+  type = list(string)
+}
