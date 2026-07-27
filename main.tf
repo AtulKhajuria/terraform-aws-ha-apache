@@ -20,7 +20,7 @@ module "compute" {
   instance_type     = var.instance_type
   common_tags       = local.common_tags
   public_subnet_ids = module.network.public_subnet_ids
-  target_group_arn = module.alb.target_group_arn
+  target_group_arn  = module.alb.target_group_arn
 }
 module "alb" {
   source                = "./modules/alb"
