@@ -13,14 +13,14 @@ module "security" {
   environment  = var.environment
 }
 module "compute" {
-  source            = "./modules/compute"
-  environment       = var.environment
-  project_name      = var.project_name
-  security_group_id = module.security.ec2_security_group_id
-  instance_type     = var.instance_type
-  common_tags       = local.common_tags
-  public_subnet_ids = module.network.public_subnet_ids
-  target_group_arn  = module.alb.target_group_arn
+  source                = "./modules/compute"
+  environment           = var.environment
+  project_name          = var.project_name
+  security_group_id     = module.security.ec2_security_group_id
+  instance_type         = var.instance_type
+  common_tags           = local.common_tags
+  public_subnet_ids     = module.network.public_subnet_ids
+  target_group_arn      = module.alb.target_group_arn
   instance_profile_name = module.iam.instance_profile_name
 }
 module "alb" {
@@ -33,8 +33,8 @@ module "alb" {
   common_tags           = local.common_tags
 }
 module "iam" {
-  source = "./modules/iam"
+  source       = "./modules/iam"
   project_name = var.project_name
-  environment = var.environment
-  common_tags = local.common_tags
+  environment  = var.environment
+  common_tags  = local.common_tags
 }
