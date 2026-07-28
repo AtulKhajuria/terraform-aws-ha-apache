@@ -8,18 +8,18 @@ variable "security_group_id" {
   type = string
 }
 variable "instance_type" {
-  type = string
+  type        = string
   description = "EC2 instance type"
 }
 variable "common_tags" {
-    description = "Common tags of project"
-    type = map(string)
+  description = "Common tags of project"
+  type        = map(string)
 }
 variable "target_group_arn" {
   description = "Target group ARN"
-  type = string
+  type        = string
 }
 variable "public_subnet_ids" {
   description = "Public subnet IDs for ASG"
-  type = list(string)
+  type        = list(string)
 }

@@ -4,8 +4,8 @@ variable "vpc_cidr" {
 variable "public_subnets" {
   description = "Public subnet configuration."
   type = map(object({
-    cidr = string
-    az_index = number 
+    cidr     = string
+    az_index = number
   }))
 }
 variable "project_name" {

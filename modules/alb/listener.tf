@@ -1,9 +1,9 @@
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.this.arn
-  protocol = "HTTP"
-  port = 80
+  protocol          = "HTTP"
+  port              = 80
   default_action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.this.arn
   }
 }
