@@ -21,6 +21,7 @@ module "compute" {
   common_tags       = local.common_tags
   public_subnet_ids = module.network.public_subnet_ids
   target_group_arn  = module.alb.target_group_arn
+  instance_profile_name = module.iam.instance_profile_name
 }
 module "alb" {
   source                = "./modules/alb"
@@ -30,4 +31,10 @@ module "alb" {
   project_name          = var.project_name
   environment           = var.environment
   common_tags           = local.common_tags
+}
+module "iam" {
+  source = "./modules/iam"
+  project_name = var.project_name
+  environment = var.environment
+  common_tags = local.common_tags
 }

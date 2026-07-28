@@ -23,3 +23,7 @@ variable "public_subnet_ids" {
   description = "Public subnet IDs for ASG"
   type        = list(string)
 }
+variable "instance_profile_name" {
+  description = "IAM instance profile for EC2"
+  type = string
+}
