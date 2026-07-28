@@ -208,7 +208,7 @@ sudo apt install stress -y
 Generate CPU Load
 
 ```bash
-stress --cpu 4 --timeout 600
+stress --cpu 2 --timeout 600
 ```
 
 Observe:
