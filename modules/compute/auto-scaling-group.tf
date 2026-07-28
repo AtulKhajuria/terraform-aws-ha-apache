@@ -14,6 +14,18 @@ resource "aws_autoscaling_group" "this" {
     id = aws_launch_template.this.id
     version = "$Latest"
   }
+  lifecycle {
+    create_before_destroy = true
+  }
+  wait_for_capacity_timeout = "10m"
+  instance_refresh {
+    strategy = "Rolling"
+
+    preferences {
+      min_healthy_percentage = 50
+    }
+    triggers = ["launch_template"]
+  }
   tag {
     key = "Name"
     value = "${var.project_name}-${var.environment}-apache"
